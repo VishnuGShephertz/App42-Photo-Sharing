@@ -24,12 +24,12 @@ __Initialize Services:__
 Initialization has been done in App42ServiceApi.java
 
 ```
-        	ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
+        		ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
   			Constants.secretKey);
-		this.storageService = serviceApi.buildStorageService();
-		this.reviewService = serviceApi.buildReviewService();
-		this.socialService = serviceApi.buildSocialService();
-		this.uploadService = serviceApi.buildUploadService();
+			this.storageService = serviceApi.buildStorageService();
+			this.reviewService = serviceApi.buildReviewService();
+			this.socialService = serviceApi.buildSocialService();
+			this.uploadService = serviceApi.buildUploadService();
 ```
 
 __Get Facebook Friends:__
@@ -37,26 +37,26 @@ __Get Facebook Friends:__
 This has been done in  App42ServiceApi.java
 
 ```
-                  	 Social linkObj = socialService.linkUserFacebookAccount(userID,
+                  		 Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
-		  	 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-		   	final ArrayList<Friends> friendList =socialObj.getFriendList();
+		  		 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
+		   		final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
 __Share Photo With Friend:__
 
 This has been done in  App42ServiceApi.java : First upload photo
 
 ```
-                 	 String photoID = "Id" + new Date().getTime();
-	         		Upload uploadObj = uploadService.uploadFileForUser(photoID,
-				jsonData.getString(Constants.keyOwner),
-				jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
-				jsonData.getString(Constants.keyComment));
+                 		 String photoID = "Id" + new Date().getTime();
+	         			Upload uploadObj = uploadService.uploadFileForUser(photoID,
+					jsonData.getString(Constants.keyOwner),
+					jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
+					jsonData.getString(Constants.keyComment));
 ```
 Than store photo information :
 
 ```
-                	Storage response = storageService.insertJSONDocument(Constants.dbName,
+                		Storage response = storageService.insertJSONDocument(Constants.dbName,
 				Constants.colName, jsonData.toString());
 ```
 
