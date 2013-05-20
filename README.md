@@ -65,7 +65,7 @@ __Load My Album:__
 This has been done in  App42ServiceApi.java : Shared photos
 
 ```
-              Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
+                  Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
 					Constants.colName, Constants.keyOwnerId, userID);
 ```
 Received photos:
@@ -80,7 +80,7 @@ __Load Comments:__
 This has been done in  App42ServiceApi.java :
 
 ```
-            ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
+                  ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
 ```
 
 __Add Comments:__
