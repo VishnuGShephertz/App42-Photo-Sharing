@@ -69,7 +69,7 @@ public class FacebookGallery extends Activity {
 			try {
 				dialog.setMessage("Loading album.......");
 				dialog.show();
-				App42StorageService.instance().loadMyAlbum(
+				App42ServiceApi.instance().loadMyAlbum(
 						UserContext.MyUserName, this, albumType);
 			} catch (Exception e) {
 				dialog.dismiss();

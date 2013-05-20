@@ -84,7 +84,7 @@ public class FacebookAlbum extends Activity {
 	public void sendMessage(View v) {
 		String comments = edComment.getText().toString();
 		if (comments.length() > 0) {
-			App42StorageService.instance().sendComments(UserContext.MyUserName,
+			App42ServiceApi.instance().sendComments(UserContext.MyUserName,
 					photoId, comments);
 			String prevComments = txtComments.getText().toString();
 			txtComments.setText(prevComments + space + comments);
@@ -187,7 +187,7 @@ public class FacebookAlbum extends Activity {
 			txtComments.setText("\n friend :"
 					+ commentsArr.get(imageIndex));
 		}
-		App42StorageService.instance().loadComments(photoId, this);
+		App42ServiceApi.instance().loadComments(photoId, this);
 
 	}
 

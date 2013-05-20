@@ -76,7 +76,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 				FacebookService.instance().fetchFacebookProfile(this);
 			} else {
 				UserContext.authorized = true;
-				App42StorageService.instance().loadAllFriends(
+				App42ServiceApi.instance().loadAllFriends(
 						UserContext.MyUserName, UserContext.accessToken, this);
 			}
 		}
@@ -177,7 +177,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 			}
 			jsonData.put(Constants.keyUrl, imgPath);
 			jsonData.put(Constants.keyComment, comment);
-			App42StorageService.instance().sharePicToFriend(jsonData, this);
+			App42ServiceApi.instance().sharePicToFriend(jsonData, this);
 		} catch (JSONException e) {
 			msg = "Exception " + e;
 			Toast.makeText(this, "Upload Falied " + e, Toast.LENGTH_SHORT)
@@ -242,7 +242,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 	 void onFacebookProfileRetreived(boolean isSuccess) {
 		// override this method
 		if (isSuccess) {
-			App42StorageService.instance().loadAllFriends(
+			App42ServiceApi.instance().loadAllFriends(
 					UserContext.MyUserName, UserContext.accessToken, this);
 		}
 		else{
