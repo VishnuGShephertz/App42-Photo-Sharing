@@ -24,7 +24,7 @@ __Initialize Services:__
 Initialization has been done in App42ServiceApi.java
 
 ```
-       ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
+        	ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
   			Constants.secretKey);
 		this.storageService = serviceApi.buildStorageService();
 		this.reviewService = serviceApi.buildReviewService();
@@ -37,18 +37,18 @@ __Get Facebook Friends:__
 This has been done in  App42ServiceApi.java
 
 ```
-                   Social linkObj = socialService.linkUserFacebookAccount(userID,
+                  	 Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
-		   Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-		   final ArrayList<Friends> friendList =socialObj.getFriendList();
+		  	 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
+		   	final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
 __Share Photo With Friend:__
 
 This has been done in  App42ServiceApi.java : First upload photo
 
 ```
-                  String photoID = "Id" + new Date().getTime();
-	         	Upload uploadObj = uploadService.uploadFileForUser(photoID,
+                 	 String photoID = "Id" + new Date().getTime();
+	         		Upload uploadObj = uploadService.uploadFileForUser(photoID,
 				jsonData.getString(Constants.keyOwner),
 				jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
 				jsonData.getString(Constants.keyComment));
@@ -56,7 +56,7 @@ This has been done in  App42ServiceApi.java : First upload photo
 Than store photo information :
 
 ```
-                Storage response = storageService.insertJSONDocument(Constants.dbName,
+                	Storage response = storageService.insertJSONDocument(Constants.dbName,
 				Constants.colName, jsonData.toString());
 ```
 
@@ -65,13 +65,13 @@ __Load My Album:__
 This has been done in  App42ServiceApi.java : Shared photos
 
 ``` 
-                    Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
+                   	Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
 					Constants.colName, Constants.keyOwnerId, userID);
 ```
 Received photos:
 
 ```
-                   Storage response =storageService.findDocumentByKeyValue(Constants.dbName,
+                   	Storage response =storageService.findDocumentByKeyValue(Constants.dbName,
 					Constants.colName, Constants.keyReceiverId, userID);
 ```
 
@@ -80,7 +80,7 @@ __Load Comments:__
 This has been done in  App42ServiceApi.java :
 
 ```
-                  ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
+                  	ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
 ```
 
 __Add Comments:__
@@ -88,6 +88,6 @@ __Add Comments:__
 This has been done in  App42ServiceApi.java :
 
 ```
-            	reviewService.addComment(userID, photoID, comments);
+            		reviewService.addComment(userID, photoID, comments);
 ```
 
