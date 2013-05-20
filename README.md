@@ -1,6 +1,11 @@
 App42-Photo-Sharing
 ===================
 
+# About application
+
+1. This application is used to share photo with your facebook friends.
+2. You can also share comments on those photos with your friends.
+
 # Runnnig Sample
 
 This is a sample Android social app is made using App42 backened platform. It uses social, upload, storage and review service App42 platform. Here are the few easy steps to run this sample app.
