@@ -47,8 +47,8 @@ __Share Photo With Friend:__
 This has been done in  App42ServiceApi.java : First upload photo
 
 ```
-                 		 String photoID = "Id" + new Date().getTime();
-	         			Upload uploadObj = uploadService.uploadFileForUser(photoID,
+                 		String photoID = "Id" + new Date().getTime();
+	         		Upload uploadObj = uploadService.uploadFileForUser(photoID,
 					jsonData.getString(Constants.keyOwner),
 					jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
 					jsonData.getString(Constants.keyComment));
@@ -56,7 +56,7 @@ This has been done in  App42ServiceApi.java : First upload photo
 Than store photo information :
 
 ```
-                		Storage response = storageService.insertJSONDocument(Constants.dbName,
+                	Storage response = storageService.insertJSONDocument(Constants.dbName,
 					Constants.colName, jsonData.toString());
 ```
 
@@ -84,7 +84,6 @@ This has been done in  App42ServiceApi.java :
 ```
 
 __Add Comments:__
-
 This has been done in  App42ServiceApi.java :
 
 ```
