@@ -32,13 +32,62 @@ Initialization has been done in App42ServiceApi.java
 		this.uploadService = serviceApi.buildUploadService();
 ```
 
-__Get Facebook friends:__
+__Get Facebook Friends:__
 
 This has been done in  App42ServiceApi.java
 
 ```
-   Social linkObj = socialService.linkUserFacebookAccount(userID,
+                   Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
-					Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-					final ArrayList<Friends> friendList =socialObj.getFriendList();
+		   Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
+		   final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
+__Share Photo wWth Freiend__
+
+This has been done in  App42ServiceApi.java : First upload photo
+
+```
+                  	String photoID = "Id" + new Date().getTime();
+	         	Upload uploadObj = uploadService.uploadFileForUser(photoID,
+				jsonData.getString(Constants.keyOwner),
+				jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
+				jsonData.getString(Constants.keyComment));
+```
+Than store photo information :
+
+```
+                  Storage response = storageService.insertJSONDocument(Constants.dbName,
+				Constants.colName, jsonData.toString());
+```
+
+__Load My Album__
+
+This has been done in  App42ServiceApi.java : Shared photos
+
+```
+              Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
+					Constants.colName, Constants.keyOwnerId, userID);
+```
+Than received photos:
+
+```
+                  Storage response =storageService.findDocumentByKeyValue(Constants.dbName,
+					Constants.colName, Constants.keyReceiverId, userID);
+```
+
+__Load Comments__
+
+This has been done in  App42ServiceApi.java : Shared photos
+
+```
+            ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
+```
+
+__Add Comments__
+
+This has been done in  App42ServiceApi.java : Shared photos
+
+```
+            	reviewService.addComment(userID, photoID, comments);
+```
+
