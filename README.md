@@ -42,7 +42,7 @@ This has been done in  App42ServiceApi.java
 		   Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
 		   final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
-__Share Photo With Friend__
+__Share Photo With Friend:__
 
 This has been done in  App42ServiceApi.java : First upload photo
 
@@ -60,7 +60,7 @@ Than store photo information :
 				Constants.colName, jsonData.toString());
 ```
 
-__Load My Album__
+__Load My Album:__
 
 This has been done in  App42ServiceApi.java : Shared photos
 
@@ -75,7 +75,7 @@ Received photos:
 					Constants.colName, Constants.keyReceiverId, userID);
 ```
 
-__Load Comments__
+__Load Comments:__
 
 This has been done in  App42ServiceApi.java :
 
@@ -83,7 +83,7 @@ This has been done in  App42ServiceApi.java :
             ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
 ```
 
-__Add Comments__
+__Add Comments:__
 
 This has been done in  App42ServiceApi.java :
 
