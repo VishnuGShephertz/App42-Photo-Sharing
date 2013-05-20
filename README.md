@@ -39,7 +39,7 @@ This has been done in  App42ServiceApi.java
 ```
                   	 Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
-		  	 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
+		  		 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
 		        	final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
 __Share Photo With Friend:__
@@ -57,7 +57,7 @@ Than store photo information :
 
 ```
                 		Storage response = storageService.insertJSONDocument(Constants.dbName,
-				Constants.colName, jsonData.toString());
+					Constants.colName, jsonData.toString());
 ```
 
 __Load My Album:__
