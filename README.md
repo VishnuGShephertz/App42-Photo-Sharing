@@ -24,7 +24,7 @@ __Initialize Services:__
 Initialization has been done in App42ServiceApi.java
 
 ```
-        		ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
+        	ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
   			Constants.secretKey);
 			this.storageService = serviceApi.buildStorageService();
 			this.reviewService = serviceApi.buildReviewService();
@@ -37,10 +37,10 @@ __Get Facebook Friends:__
 This has been done in  App42ServiceApi.java
 
 ```
-                  		 Social linkObj = socialService.linkUserFacebookAccount(userID,
+                  	 Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
-		  		 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-		   		final ArrayList<Friends> friendList =socialObj.getFriendList();
+		  	 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
+		        	final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
 __Share Photo With Friend:__
 
