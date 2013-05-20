@@ -24,7 +24,7 @@ __Initialize Services:__
 Initialization has been done in App42ServiceApi.java
 
 ```
-     ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
+       ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
   			Constants.secretKey);
 		this.storageService = serviceApi.buildStorageService();
 		this.reviewService = serviceApi.buildReviewService();
@@ -56,7 +56,7 @@ This has been done in  App42ServiceApi.java : First upload photo
 Than store photo information :
 
 ```
-                  Storage response = storageService.insertJSONDocument(Constants.dbName,
+                 Storage response = storageService.insertJSONDocument(Constants.dbName,
 				Constants.colName, jsonData.toString());
 ```
 
@@ -64,8 +64,8 @@ __Load My Album:__
 
 This has been done in  App42ServiceApi.java : Shared photos
 
-```
-                  Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
+``` 
+                   Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
 					Constants.colName, Constants.keyOwnerId, userID);
 ```
 Received photos:
