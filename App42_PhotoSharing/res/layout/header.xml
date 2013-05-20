@@ -1,0 +1,14 @@
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    	    android:id="@+id/page_header"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content"
+    	    android:textSize="20dip"
+    	    android:layout_gravity="center"
+    	    android:textColor="#ffffff"
+    	    android:text="Gallery"
+    	    android:gravity="center"
+    	    android:background="#9999ee"
+    	    android:paddingTop="5dp"
+    	    android:paddingBottom="5dp"
+    	    
+       />

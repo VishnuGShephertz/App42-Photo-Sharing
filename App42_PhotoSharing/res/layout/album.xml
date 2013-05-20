@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_slider"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/listViewBg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center" >
+            <ImageView
+                android:id="@+id/album_pic"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+            </ImageView>
+            <TextView
+                android:id="@+id/comment_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/album_pic"
+                android:text="Hi."
+                 android:textColor="@color/textFieldColor"
+                android:textSize="20dip" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/comment_text" >
+                <EditText
+                    android:id="@+id/comment_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.06"
+                    android:hint="comment" >
+                </EditText>
+                <Button
+                    android:id="@drawable/send_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:focusable="true"
+                     android:onClick="sendMessage"
+                     android:text="Send" >
+                </Button>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
