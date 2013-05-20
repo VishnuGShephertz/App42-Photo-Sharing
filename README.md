@@ -40,7 +40,7 @@ This has been done in  App42ServiceApi.java
                   	 Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
 		  			 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-		        	final ArrayList<Friends> friendList =socialObj.getFriendList();
+		        		final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
 __Share Photo With Friend:__
 
@@ -48,7 +48,7 @@ This has been done in  App42ServiceApi.java : First upload photo
 
 ```
                  		String photoID = "Id" + new Date().getTime();
-	         			Upload uploadObj = uploadService.uploadFileForUser(photoID,
+	         		Upload uploadObj = uploadService.uploadFileForUser(photoID,
 					jsonData.getString(Constants.keyOwner),
 					jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
 					jsonData.getString(Constants.keyComment));
