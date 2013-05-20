@@ -47,7 +47,7 @@ __Share Photo With Friend:__
 This has been done in  App42ServiceApi.java : First upload photo
 
 ```
-                  	String photoID = "Id" + new Date().getTime();
+                  String photoID = "Id" + new Date().getTime();
 	         	Upload uploadObj = uploadService.uploadFileForUser(photoID,
 				jsonData.getString(Constants.keyOwner),
 				jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
@@ -56,7 +56,7 @@ This has been done in  App42ServiceApi.java : First upload photo
 Than store photo information :
 
 ```
-                 Storage response = storageService.insertJSONDocument(Constants.dbName,
+                Storage response = storageService.insertJSONDocument(Constants.dbName,
 				Constants.colName, jsonData.toString());
 ```
 
@@ -65,13 +65,13 @@ __Load My Album:__
 This has been done in  App42ServiceApi.java : Shared photos
 
 ``` 
-                   Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
+                    Storage  response = storageService.findDocumentByKeyValue(Constants.dbName,
 					Constants.colName, Constants.keyOwnerId, userID);
 ```
 Received photos:
 
 ```
-                  Storage response =storageService.findDocumentByKeyValue(Constants.dbName,
+                   Storage response =storageService.findDocumentByKeyValue(Constants.dbName,
 					Constants.colName, Constants.keyReceiverId, userID);
 ```
 
