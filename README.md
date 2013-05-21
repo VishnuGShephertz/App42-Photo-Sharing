@@ -45,7 +45,7 @@ This has been done in  App42ServiceApi.java
                   	 Social linkObj = socialService.linkUserFacebookAccount(userID,
 							accessToken);
 		  			 Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-		        	final ArrayList<Friends> friendList =socialObj.getFriendList();
+		        	 final ArrayList<Friends> friendList =socialObj.getFriendList();
 ```
 __Share Photo With Friend:__
 
