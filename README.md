@@ -17,7 +17,7 @@ This is a sample Android social app is made using App42 backened platform. It us
 5. Download the eclipse project from this repo and import it in the same.
 6. Open Constants.java in sample app and give the value of app42APIkey app42SecretKey that you have received in step 2 or 4
 7. [Download Facebook SDk] (https://github.com/facebook/facebook-android-sdk) and add it as a library project in your application
-8. You can also modify your FB_APP_ID n Constants.java file. Read our blog post for more help about creating facebook app and its configuration.
+8. You can also modify your FB_APP_ID isn Constants.java file.
 9. Build and Run 
 
 
