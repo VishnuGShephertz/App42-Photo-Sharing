@@ -8,12 +8,12 @@ App42-Photo-Sharing
 
 # Running Sample
 
-This is a sample Android social app is made using App42 backend  platform. It uses social, upload, storage and review service App42 platform. Here are the few easy steps to run this sample app.
+This is a sample Android social app is made using App42 backend platform. It uses social, upload, storage and review service App42 platform. Here are the few easy steps to run this sample app.
 
 1. [Register] (https://apphq.shephertz.com/register) with App42 platform
-2. Create an app once you are on Quick start  page after registration.
+2. Create an app once you are on Quick start page after registration.
 3. Go to dashboard and create a new game PhotoSharingApp. 
-4. If you are already registered, login to [AppHQ] (http://apphq.shephertz.com) console and create an app from App Manager tab and do step #3 to create a game.
+4. If you are already registered, login to [AppHQ] (http://apphq.shephertz.com) console and create an app from App Manager Tab and do step #3 to create a game.
 5. Download the eclipse project from this repo and import it in the same.
 6. Open Constants.java in sample app and give the value of app42APIkey app42SecretKey that you have received in step 2 or 4
 7. [Download Face-book SDk] (https://github.com/facebook/facebook-android-sdk) and add it as a library project in your application
