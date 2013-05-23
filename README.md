@@ -6,7 +6,7 @@ App42-Photo-Sharing
 1. This application is used to share photo with your face-book friends.
 2. You can also share comments on those photos with your friends.
 
-# Running  Sample
+# Running Sample
 
 This is a sample Android social app is made using App42 backend  platform. It uses social, upload, storage and review service App42 platform. Here are the few easy steps to run this sample app.
 
@@ -17,7 +17,7 @@ This is a sample Android social app is made using App42 backend  platform. It us
 5. Download the eclipse project from this repo and import it in the same.
 6. Open Constants.java in sample app and give the value of app42APIkey app42SecretKey that you have received in step 2 or 4
 7. [Download Face-book SDk] (https://github.com/facebook/facebook-android-sdk) and add it as a library project in your application
-8. You can also modify your FB_APP_ID isn Constants.java file.
+8. You can also modify your FB_APP_ID is in Constants.java file.
 9. Build and Run 
 
 
