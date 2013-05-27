@@ -88,7 +88,7 @@ public class FacebookGallery extends Activity {
 	}
 
 	/*
-	 * Used to show dialog that show no internet
+	 * This function allows user to show dialog that show no Internet
 	 */
 	private void showNoConnectionDialog() {
 		AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
@@ -108,7 +108,7 @@ public class FacebookGallery extends Activity {
 
 	/*
 	 * Call back method 
-	 * used to parse all information of album
+	 * This function allows user to  parse all information of album
 	 * @param albumJson contains all information of album
 	 * 
 	 */
@@ -135,7 +135,7 @@ public class FacebookGallery extends Activity {
 		updateAlbumView();
 	}
 /*
- * Used to update album
+ * This function allows user to update album
  */
 	private void updateAlbumView() {
 		gridAlbum.setAdapter(new GalleryAdapter(this, girdWidth, friendNamesArr,
@@ -150,7 +150,7 @@ public class FacebookGallery extends Activity {
 	}
 
 	 /*
-	  * Used to set properties of android gridView for album
+	  * This function allows user to set properties of android gridView for album
 	  */
 	private GridView buildGridView() {
 		GridView grid = (GridView) findViewById(R.id.album_grid_view);

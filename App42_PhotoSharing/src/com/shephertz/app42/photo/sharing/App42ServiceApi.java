@@ -18,7 +18,7 @@ import com.shephertz.app42.paas.sdk.android.upload.UploadFileType;
 import com.shephertz.app42.paas.sdk.android.upload.UploadService;
 
 /*
- * This class is used integrate with APP42 Service API
+ * This class allows user to integrate with APP42 Service API
  */
 public class App42ServiceApi {
 
@@ -29,7 +29,7 @@ public class App42ServiceApi {
 	private UploadService uploadService;
 
 	/*
-	 * instance of class
+	 * Instance of class
 	 */
 	public static App42ServiceApi instance() {
 		if (_instance == null) {
@@ -50,10 +50,11 @@ public class App42ServiceApi {
 		this.uploadService = serviceApi.buildUploadService();
 	}
 
-
 	/*
-	 * Used to load all comments on a photo
+	 * This function allows user to load all comments on a photo
+	 * 
 	 * @param photoId on which comments are loaded
+	 * 
 	 * @param callback instance of class where we have to return
 	 */
 	public void loadComments(final String photoID, final FacebookAlbum callback) {
@@ -62,8 +63,9 @@ public class App42ServiceApi {
 			@Override
 			public void run() {
 				try {
-				
-					final ArrayList<Review> allComments = reviewService.getCommentsByItem(photoID);
+
+					final ArrayList<Review> allComments = reviewService
+							.getCommentsByItem(photoID);
 					callingThreadHandler.post(new Runnable() {
 						@Override
 						public void run() {
@@ -87,10 +89,13 @@ public class App42ServiceApi {
 	}
 
 	/*
-	 * Used to update/add comment on a photo
+	 * This function allows user to update/add comment on a photo
+	 * 
 	 * @param userID the id of person who has commented on photo
+	 * 
 	 * @param photoID on which user commented
-	 * @param comments 
+	 * 
+	 * @param comments
 	 */
 	public void sendComments(final String userID, final String photoID,
 			final String comments) {
@@ -103,7 +108,7 @@ public class App42ServiceApi {
 					callingThreadHandler.post(new Runnable() {
 						@Override
 						public void run() {
-							
+
 						}
 					});
 				} catch (final Exception ex) {
@@ -119,9 +124,12 @@ public class App42ServiceApi {
 	}
 
 	/*
-	 * Used to load all Facebook friends
+	 * This function allows user to load all Face-book friends
+	 * 
 	 * @param userID FB id of user
-	 * @param accessToken facebook accesstoken
+	 * 
+	 * @param accessToken face-book access token
+	 * 
 	 * @param callback instance of class on which we have to return
 	 */
 	public void loadAllFriends(final String userID, final String accessToken,
@@ -131,10 +139,12 @@ public class App42ServiceApi {
 			@Override
 			public void run() {
 				try {
-					Social linkObj = socialService.linkUserFacebookAccount(userID,
-							accessToken);
-					Social socialObj = socialService.getFacebookFriendsFromLinkUser(userID);
-					final ArrayList<Friends> friendList =socialObj.getFriendList();
+					Social linkObj = socialService.linkUserFacebookAccount(
+							userID, accessToken);
+					Social socialObj = socialService
+							.getFacebookFriendsFromLinkUser(userID);
+					final ArrayList<Friends> friendList = socialObj
+							.getFriendList();
 					callingThreadHandler.post(new Runnable() {
 						@Override
 						public void run() {
@@ -156,12 +166,14 @@ public class App42ServiceApi {
 			}
 		}.start();
 	}
-	
-/* Used to share photo with facebook friend.
- * @param json data contains information of photo user and friend
- * @param callback instance of class on which we have to return
- * 
- */
+
+	/*
+	 * This function allows user to share photo with face-book friend.
+	 * 
+	 * @param json data contains information of photo user and friend
+	 * 
+	 * @param callback instance of class on which we have to return
+	 */
 	public void sharePicToFriend(final JSONObject jsonData,
 			final FriendList callback) {
 		final Handler callingThreadHandler = new Handler();
@@ -194,7 +206,8 @@ public class App42ServiceApi {
 	}
 
 	/*
-	 * Used to upload photo
+	 * This function allows user to upload photo
+	 * 
 	 * @param jsonData contains information of photo,user and friend
 	 */
 	private boolean uploadPhoto(JSONObject jsonData) throws Exception {
@@ -213,10 +226,12 @@ public class App42ServiceApi {
 		}
 
 	}
-	
+
 	/*
-	 * Used to store data when photo is successfully uploaded
-	 * @param jsonData contains information of photo,user and friend
+	 * This function allows user to store data when photo is successfully
+	 * uploaded
+	 * 
+	 * @param jsonData contains information of photo, user and friend
 	 */
 	private boolean storePhoto(JSONObject jsonData) {
 		Storage response = storageService.insertJSONDocument(Constants.dbName,
@@ -229,20 +244,23 @@ public class App42ServiceApi {
 	}
 
 	/*
-	 * Used to load userALbum
+	 * This function allows user to load user Album
+	 * 
 	 * @param userId
+	 * 
 	 * @param callback of class on which we have to return
-	 * @param albumState type of album shared/received
+	 * 
+	 * @param album State type of album shared/received
 	 */
-	public void loadMyAlbum(final String userID, final FacebookGallery callback,
-			final int albumType) {
+	public void loadMyAlbum(final String userID,
+			final FacebookGallery callback, final int albumType) {
 		final Handler callingThreadHandler = new Handler();
 		new Thread() {
 			@Override
 			public void run() {
 				try {
-					final ArrayList<JSONDocument> albumJson = getAlbumDoc(userID,
-							albumType);
+					final ArrayList<JSONDocument> albumJson = getAlbumDoc(
+							userID, albumType);
 					callingThreadHandler.post(new Runnable() {
 						@Override
 						public void run() {
@@ -265,9 +283,12 @@ public class App42ServiceApi {
 		}.start();
 
 	}
+
 	/*
-	 * Used to load userALbum
+	 * This function allows user to load user Album
+	 * 
 	 * @param userId
+	 * 
 	 * @param albumState type of album shared/received
 	 */
 	private ArrayList<JSONDocument> getAlbumDoc(String userID, int albumType) {

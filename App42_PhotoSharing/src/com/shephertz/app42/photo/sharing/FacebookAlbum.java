@@ -41,10 +41,10 @@ public class FacebookAlbum extends Activity {
 	private EditText edComment;
 	private String photoId;
 	private String space = "\n" + "me :";
-	private  ArrayList<String> imageUrls;
-	private  ArrayList<String> friendNamesArr;
-	private  ArrayList<String> commentsArr;
-	private  ArrayList<String> photoIdsArr;
+	private ArrayList<String> imageUrls;
+	private ArrayList<String> friendNamesArr;
+	private ArrayList<String> commentsArr;
+	private ArrayList<String> photoIdsArr;
 
 	/*
 	 * (non-Javadoc)
@@ -79,7 +79,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Used to send comment
+	 * This function allows user to send comment
 	 */
 	public void sendMessage(View v) {
 		String comments = edComment.getText().toString();
@@ -94,23 +94,22 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * load parameter from intent
+	 * This function allows to load parameter from intent
 	 */
 	private void getParameters() {
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
 		albumState = bundle.getInt("albumState");
 		imageIndex = bundle.getInt("index");
-		friendNamesArr=bundle.getStringArrayList("friends");
-		commentsArr=bundle.getStringArrayList("comments");
-		imageUrls=bundle.getStringArrayList("imageUrls");
-		photoIdsArr=bundle.getStringArrayList("photoIds");
-		
+		friendNamesArr = bundle.getStringArrayList("friends");
+		commentsArr = bundle.getStringArrayList("comments");
+		imageUrls = bundle.getStringArrayList("imageUrls");
+		photoIdsArr = bundle.getStringArrayList("photoIds");
 
 	}
 
 	/*
-	 * Check intenet connectivity (non-Javadoc)
+	 * Check internet connectivity (non-Javadoc)
 	 * 
 	 * @see android.app.Activity#onStart()
 	 */
@@ -122,7 +121,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Show no internet dialog
+	 * This function allows to show no internet dialog
 	 */
 	private void showNoConnectionDialog() {
 		AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
@@ -141,7 +140,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Use to call when user slide on image
+	 * This function call when user slide on image
 	 */
 	private void AnimateandSlideShow() {
 		if (leftSweap) {
@@ -155,13 +154,13 @@ public class FacebookAlbum extends Activity {
 		}
 		int index = imageIndex % albumSize;
 		friendName.setText(friendNamesArr.get(index));
-		String url =imageUrls.get(index);
+		String url = imageUrls.get(index);
 		showLoading("Laoding image");
 		Utils.loadAlbumPic(url, imageHgt, this);
 	}
 
 	/*
-	 * Used to show loading bar
+	 * This function allows user to show loading bar
 	 */
 	private void showLoading(String message) {
 		dialog.setMessage(message + "...");
@@ -169,8 +168,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Callback method called when image bitmap is loaded Used to update
-	 * commented list
+	 * Callback method called when image bitmap is loaded commented list
 	 */
 	void onLoadImage(Bitmap bitmapImage) {
 		dialog.dismiss();
@@ -181,11 +179,9 @@ public class FacebookAlbum extends Activity {
 		showLoading("Loading comments");
 		photoId = photoIdsArr.get(imageIndex);
 		if (albumState == Constants.sharedAlbum) {
-			txtComments.setText(space
-					+commentsArr.get(imageIndex));
+			txtComments.setText(space + commentsArr.get(imageIndex));
 		} else {
-			txtComments.setText("\n friend :"
-					+ commentsArr.get(imageIndex));
+			txtComments.setText("\n friend :" + commentsArr.get(imageIndex));
 		}
 		App42ServiceApi.instance().loadComments(photoId, this);
 
@@ -199,7 +195,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Used to get image height for sampling of image
+	 * This function allows user to get image height for sampling of image
 	 */
 	private int getImageHeight() {
 		Display display = getWindowManager().getDefaultDisplay();
@@ -244,7 +240,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Callback method used to parse all comments on image
+	 * Callback method allows user to parse all comments on image
 	 */
 	void onGetAllComments(ArrayList<Review> arrAllComments) {
 		dialog.dismiss();
@@ -262,7 +258,7 @@ public class FacebookAlbum extends Activity {
 	}
 
 	/*
-	 * Used to handle sliding event when image is slide
+	 * This function allows user to handle sliding event when image is slide
 	 */
 	private class ActivitySwipeDetector implements View.OnTouchListener {
 		private final String logTag = "ActivitySwipeDetector";

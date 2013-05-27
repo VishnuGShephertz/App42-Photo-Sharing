@@ -20,7 +20,7 @@ public class SplashActivty extends Activity{
 	}
 	
 	/*
-	 * This function used to schedule time for Splash
+	 * This function allows user to schedule time for Splash
 	 */
 	private void startTimer() {
 		if (timer != null) {
@@ -37,7 +37,7 @@ public class SplashActivty extends Activity{
 	}
 	
 	/*
-	 * Used to navigate user Facebook friendlist
+	 * This function allows user to navigate user Facebook friendlist
 	 */
 	private void gotoFriendList(){
 		Intent intent=new Intent(this,FriendList.class);

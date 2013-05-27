@@ -4,7 +4,7 @@
 package com.shephertz.app42.photo.sharing;
 
 /**
- * This class used to save data that
+ * This class allows user to save data
  *
  */
 public class UserContext {

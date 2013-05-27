@@ -13,7 +13,7 @@ import android.widget.ImageView;
 public class Utils {
 	
 	/*
-	 * Used to check user is autenticated with facebook or not
+	 * This function allows user to check user is autenticated with facebook or not
 	 */
 	public static boolean isAuthenticated() {
 		return (FacebookService.instance().isFacebookSessionValid() && UserContext.MyUserName
@@ -21,7 +21,7 @@ public class Utils {
 	}
 	
 /*
- * used to load image from Url in a background Thraed
+ * This function allows user to load image from Url in a background Thraed
  *  @param image ImageView on which image is loaded
  *  @param url of image
  */
@@ -43,7 +43,7 @@ public class Utils {
 		}.start();
 	}
 /*
- * Used to load bitmap from url
+ * This function allows user to load bitmap from url
  * @param url of image
  * @return Bitmap 
  */
@@ -61,8 +61,8 @@ public class Utils {
 	}
 
 	/*
-	 * Used to load image in preferred size given by user
-	 * Used to do sampling of image in desired size
+	 * This function allows user to load image in preferred size given by user
+	 * This function allows user to do sampling of image in desired size
 	 * @param image ImageView on which image is loaded
 	 * @param url of image
 	 * @param size size of image(same width and height)
@@ -87,7 +87,7 @@ public class Utils {
 	}
 	
 /*
- * used to load bitmap with desired size of image.
+ * This function allows user to load bitmap with desired size of image.
  * This method first calculate the size of URL image 
  * Than re sample it with the size given by user
  * @param url of image
@@ -125,8 +125,8 @@ public class Utils {
 	}
 
 	/*
-	 * Used to load image for usrAlbul'
-	 * @param url url of image
+	 * This function allows user to load image for usrAlbul'
+	 * @param url URL of image
 	 * @param image size of sampling
 	 * @param callback which we have to return
 	 */
@@ -162,11 +162,11 @@ public class Utils {
 	}
 
 	/*
-	 * This method is used to check availability of network connection in
+	 * This method is This function allows user to check availability of network connection in
 	 * android device uses CONNECTIVITY_SERVICE of android device to get desired
-	 * network internet connection
+	 * network Internet connection
 	 * 
-	 * @return status of availability of internet connection in true or false
+	 * @return status of availability of Internet connection in true or false
 	 * manner
 	 */
 	public static boolean haveNetworkConnection(Context context) {
@@ -192,7 +192,7 @@ public class Utils {
 	}
 	
 	/*
-	 * Used to call for clearing the cache of application
+	 * This function allows user to clear the cache of application
 	 */
 	public static void clearCache(Context context) {
         try {
@@ -207,7 +207,7 @@ public class Utils {
 
     }
 	/*
-	 * Used to delete cache 
+	 * This function allows user to delete cache 
 	 */
 	 public static boolean deleteDir(File dir) {
 	        if (dir!=null && dir.isDirectory()) {

@@ -18,6 +18,10 @@ import com.facebook.android.Facebook;
 import com.facebook.android.Facebook.DialogListener;
 import com.facebook.android.FacebookError;
 
+/*
+ * This calls allows user to integrate with face-book sdk 
+ */
+
 public class FacebookService {
     	
 	private Handler mUIThreadHandler = null;
@@ -55,7 +59,7 @@ public class FacebookService {
 		return facebook.isSessionValid();
 	}
     /*
-     * Used to handle facebook signout
+     * This function allows user to handle facebook signout
      */
     public void signout() throws MalformedURLException, IOException{
     	facebook.logout(appContext);
@@ -69,7 +73,7 @@ public class FacebookService {
     }
     
     /*
-     * Used to get information of facebook user if saved
+     * This function allows user to get information of facebook user if saved
      */
     private void refreshFromContext(){
     	mPrefs = appContext.getSharedPreferences("MyGamePreferences", android.content.Context.MODE_PRIVATE);
@@ -99,7 +103,7 @@ public class FacebookService {
     
 
     /*
-     * Used to call for autherization with facebook
+     * This function allows user to call for autherization with facebook
      */
     public void fetchFacebookProfile(final FriendList hostActivity)
     {
@@ -146,7 +150,7 @@ public class FacebookService {
     
     
 /*
- * Used to fetch facebook profile when autherization is success    
+ * This function allows user to fetch face-book profile when authorization is succeeded    
  */
     public void getFacebookProfile(FriendList callingActivity)
     {
