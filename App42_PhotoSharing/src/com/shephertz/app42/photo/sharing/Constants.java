@@ -11,8 +11,8 @@ public class Constants {
 	/*
 	 * Indicates the apt and secret key requires for App42 integration
 	 */
-	static final String apiKey = "79eab1f0c4ab652b6fb01b62c77839e86c5e2242a4bb34ee773ff023d1e4e1fd";
-	static final String secretKey = "90ae1c0ff619c8f63b5b92b0ae45c689970e477f9907e522ff39f0d4b70aaeab";
+	static final String apiKey = "<Your Api Key>";
+	static final String secretKey = "<Your Secert Key>";
 	static final String dbName = "Shephertz_Fb";
 	static final String colName = "Share_Pic";
 	static final String keyOwner = "owner";
