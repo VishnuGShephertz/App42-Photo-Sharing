@@ -33,7 +33,7 @@ public class SplashActivty extends Activity{
 			public void run() {
 				gotoFriendList();
 			}
-		}, Constants.SPLASHTIME);
+		}, Constants.SplashTime);
 	}
 	
 	/*

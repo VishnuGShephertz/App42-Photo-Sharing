@@ -8,9 +8,9 @@ package com.shephertz.app42.photo.sharing;
  *
  */
 public class UserContext {
-	public static String MyPicUrl = "";
-	public static String MyDisplayName = "";
-	public static String MyUserName = "";
+	public static String myPicUrl = "";
+	public static String myDisplayName = "";
+	public static String myUserName = "";
 	public static boolean authorized=false;
 	public static String accessToken="";
 }

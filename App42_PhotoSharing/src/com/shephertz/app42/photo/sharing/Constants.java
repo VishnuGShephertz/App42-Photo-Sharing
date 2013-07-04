@@ -6,27 +6,27 @@ package com.shephertz.app42.photo.sharing;
 
 public class Constants {
 
-	static final int SPLASHTIME = 5000;
-	static final String FB_APP_ID = "183922745096467";
+	static final int SplashTime = 5000;
+	static final String FbAppId = "183922745096467";
 	/*
 	 * Indicates the apt and secret key requires for App42 integration
 	 */
-	static final String apiKey = "<Your Api Key>";
-	static final String secretKey = "<Your Secert Key>";
-	static final String dbName = "Shephertz_Fb";
-	static final String colName = "Share_Pic";
-	static final String keyOwner = "owner";
-	static final String keyOwnerId = "owner_Id";
-	static final String keyReceiver = "receiver";
-	static final String keyReceiverId = "receiver_Id";
-	static final String keyComment = "comment";
-	static final String keyUrl = "pic_Url";
-	static final String keyPhotoId = "photoID";
-	static final String keyFActive = "active";
-	static final String keyFIdle = "idle";
-	static final int maxGridWidth = 240;
-	static final String keyAlbumType = "albumType";
-	static final int sharedAlbum = 1;
-	static final int receivedAlbum = 2;
+	static final String ApiKey = "<Your Api Key>";
+	static final String SecretKey = "<Your Secert Key>";
+	static final String DbName = "Shephertz_Fb";
+	static final String ColName = "Share_Pic";
+	static final String KeyOwner = "owner";
+	static final String KeyOwnerId = "owner_Id";
+	static final String KeyReceiver = "receiver";
+	static final String KeyReceiverId = "receiver_Id";
+	static final String KeyComment = "comment";
+	static final String KeyUrl = "pic_Url";
+	static final String KeyPhotoId = "photoID";
+	static final String KeyFActive = "active";
+	static final String KeyFIdle = "idle";
+	static final int MaxGridWidth = 240;
+	static final String KeyAlbumType = "albumType";
+	static final int SharedAlbum = 1;
+	static final int ReceivedAlbum = 2;
 
 }

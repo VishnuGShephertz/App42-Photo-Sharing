@@ -42,8 +42,8 @@ public class App42ServiceApi {
 	 * Constructor of class
 	 */
 	private App42ServiceApi() {
-		ServiceAPI serviceApi = new ServiceAPI(Constants.apiKey,
-				Constants.secretKey);
+		ServiceAPI serviceApi = new ServiceAPI(Constants.ApiKey,
+				Constants.SecretKey);
 		this.storageService = serviceApi.buildStorageService();
 		this.reviewService = serviceApi.buildReviewService();
 		this.socialService = serviceApi.buildSocialService();
@@ -213,13 +213,13 @@ public class App42ServiceApi {
 	private boolean uploadPhoto(JSONObject jsonData) throws Exception {
 		String photoID = "Id" + new Date().getTime();
 		Upload uploadObj = uploadService.uploadFileForUser(photoID,
-				jsonData.getString(Constants.keyOwner),
-				jsonData.getString(Constants.keyUrl), UploadFileType.IMAGE,
-				jsonData.getString(Constants.keyComment));
+				jsonData.getString(Constants.KeyOwner),
+				jsonData.getString(Constants.KeyUrl), UploadFileType.IMAGE,
+				jsonData.getString(Constants.KeyComment));
 		if (uploadObj.isResponseSuccess()) {
-			jsonData.put(Constants.keyUrl, uploadObj.getFileList().get(0)
+			jsonData.put(Constants.KeyUrl, uploadObj.getFileList().get(0)
 					.getUrl());
-			jsonData.put(Constants.keyPhotoId, photoID);
+			jsonData.put(Constants.KeyPhotoId, photoID);
 			return storePhoto(jsonData);
 		} else {
 			return false;
@@ -234,8 +234,8 @@ public class App42ServiceApi {
 	 * @param jsonData contains information of photo, user and friend
 	 */
 	private boolean storePhoto(JSONObject jsonData) {
-		Storage response = storageService.insertJSONDocument(Constants.dbName,
-				Constants.colName, jsonData.toString());
+		Storage response = storageService.insertJSONDocument(Constants.DbName,
+				Constants.ColName, jsonData.toString());
 		if (response.isResponseSuccess()) {
 			return true;
 		} else {
@@ -293,12 +293,12 @@ public class App42ServiceApi {
 	 */
 	private ArrayList<JSONDocument> getAlbumDoc(String userID, int albumType) {
 		Storage response = null;
-		if (albumType == Constants.sharedAlbum) {
-			response = storageService.findDocumentByKeyValue(Constants.dbName,
-					Constants.colName, Constants.keyOwnerId, userID);
+		if (albumType == Constants.SharedAlbum) {
+			response = storageService.findDocumentByKeyValue(Constants.DbName,
+					Constants.ColName, Constants.KeyOwnerId, userID);
 		} else {
-			response = storageService.findDocumentByKeyValue(Constants.dbName,
-					Constants.colName, Constants.keyReceiverId, userID);
+			response = storageService.findDocumentByKeyValue(Constants.DbName,
+					Constants.ColName, Constants.KeyReceiverId, userID);
 		}
 		return response.getJsonDocList();
 	}

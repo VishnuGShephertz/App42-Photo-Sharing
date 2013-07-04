@@ -21,12 +21,12 @@ public class GalleryAdapter extends BaseAdapter {
 	private ArrayList<String> imageUrls;
 	private ArrayList<String> friendName;
 	private int gridWidth;
-	private final int GRID_SPACE = 10;
+	private final int GridSpace = 10;
 
 	// Constructor
 	public GalleryAdapter(Context context,int gridWidth,ArrayList<String> frindList,ArrayList<String> urlList) {
 		mContext = context;
-		this.gridWidth = gridWidth - GRID_SPACE;
+		this.gridWidth = gridWidth - GridSpace;
 		this.friendName=frindList;
 		this.imageUrls=urlList;
 
@@ -57,7 +57,7 @@ public class GalleryAdapter extends BaseAdapter {
 		LinearLayout linLay = new LinearLayout(mContext);
 		linLay.setOrientation(LinearLayout.VERTICAL);
 		linLay.setGravity(Gravity.CENTER);
-		linLay.setPadding(0, GRID_SPACE, 0, 0);
+		linLay.setPadding(0, GridSpace, 0, 0);
 		ImageView imageView = new ImageView(mContext);//
 		imageView.setLayoutParams(new LinearLayout.LayoutParams(gridWidth,
 				gridWidth));

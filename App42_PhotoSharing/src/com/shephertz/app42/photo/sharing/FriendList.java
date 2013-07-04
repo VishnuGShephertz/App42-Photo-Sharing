@@ -44,7 +44,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 	private ListView friendList;
 	private List<Friends> fbFriendList;
 	private List<Friends> searchFriendList;
-	private final int RESULT_LOAD_IMAGE = 1;
+	private final int LoadImageResult = 1;
 	private ProgressDialog dialog;
 	private int index = 0;
 	private boolean searchTag = false;
@@ -77,7 +77,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 			} else {
 				UserContext.authorized = true;
 				App42ServiceApi.instance().loadAllFriends(
-						UserContext.MyUserName, UserContext.accessToken, this);
+						UserContext.myUserName, UserContext.accessToken, this);
 			}
 		}
 
@@ -162,21 +162,21 @@ public class FriendList extends Activity implements OnItemClickListener {
 		}
 		String msg;
 		try {
-			jsonData.put(Constants.keyOwner, UserContext.MyDisplayName);
-			jsonData.put(Constants.keyOwnerId, UserContext.MyUserName);
+			jsonData.put(Constants.KeyOwner, UserContext.myDisplayName);
+			jsonData.put(Constants.KeyOwnerId, UserContext.myUserName);
 			if (searchTag) {
-				jsonData.put(Constants.keyReceiver, searchFriendList.get(index)
+				jsonData.put(Constants.KeyReceiver, searchFriendList.get(index)
 						.getName());
-				jsonData.put(Constants.keyReceiverId,
+				jsonData.put(Constants.KeyReceiverId,
 						searchFriendList.get(index).getId());
 			} else {
-				jsonData.put(Constants.keyReceiver, fbFriendList.get(index)
+				jsonData.put(Constants.KeyReceiver, fbFriendList.get(index)
 						.getName());
-				jsonData.put(Constants.keyReceiverId, fbFriendList.get(index)
+				jsonData.put(Constants.KeyReceiverId, fbFriendList.get(index)
 						.getId());
 			}
-			jsonData.put(Constants.keyUrl, imgPath);
-			jsonData.put(Constants.keyComment, comment);
+			jsonData.put(Constants.KeyUrl, imgPath);
+			jsonData.put(Constants.KeyComment, comment);
 			App42ServiceApi.instance().sharePicToFriend(jsonData, this);
 		} catch (JSONException e) {
 			msg = "Exception " + e;
@@ -215,7 +215,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK
+		if (requestCode == LoadImageResult && resultCode == RESULT_OK
 				&& null != data) {
 			Uri selectedImage = data.getData();
 			String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -243,7 +243,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 		// override this method
 		if (isSuccess) {
 			App42ServiceApi.instance().loadAllFriends(
-					UserContext.MyUserName, UserContext.accessToken, this);
+					UserContext.myUserName, UserContext.accessToken, this);
 		}
 		else{
 			dialog.dismiss();
@@ -335,7 +335,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 	private void browsePhoto() {
 		Intent i = new Intent(Intent.ACTION_PICK,
 				android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-		startActivityForResult(i, RESULT_LOAD_IMAGE);
+		startActivityForResult(i, LoadImageResult);
 	}
 
 	/*
@@ -395,13 +395,13 @@ public class FriendList extends Activity implements OnItemClickListener {
 	 * Used to handle click event on received button
 	 */
 	public void onReceiveAlbumClicked(View receivedBtn){ 
-		goToGallery(Constants.receivedAlbum);
+		goToGallery(Constants.ReceivedAlbum);
 	}
 	/*
 	 * Used to handle click event on shared button
 	 */
 	public void onSharedAlbumClicked(View sharedBtn){ 
-		goToGallery(Constants.sharedAlbum);
+		goToGallery(Constants.SharedAlbum);
 	}
 			
 	/*
@@ -409,7 +409,7 @@ public class FriendList extends Activity implements OnItemClickListener {
 	 */
 	private void goToGallery(int albumState) {
 		Intent intent = new Intent(this, FacebookGallery.class);
-		intent.putExtra(Constants.keyAlbumType, albumState);
+		intent.putExtra(Constants.KeyAlbumType, albumState);
 		startActivity(intent);
 
 	}

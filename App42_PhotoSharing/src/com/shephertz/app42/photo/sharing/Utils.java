@@ -16,7 +16,7 @@ public class Utils {
 	 * This function allows user to check user is autenticated with facebook or not
 	 */
 	public static boolean isAuthenticated() {
-		return (FacebookService.instance().isFacebookSessionValid() && UserContext.MyUserName
+		return (FacebookService.instance().isFacebookSessionValid() && UserContext.myUserName
 				.length() > 0);
 	}
 	

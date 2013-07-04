@@ -44,7 +44,7 @@ public class FacebookGallery extends Activity {
 		setContentView(R.layout.gallery);
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
-		albumType = bundle.getInt(Constants.keyAlbumType);
+		albumType = bundle.getInt(Constants.KeyAlbumType);
 		setImageOwner(albumType);
 		dialog = new ProgressDialog(this);
 		gridAlbum = buildGridView();
@@ -55,10 +55,10 @@ public class FacebookGallery extends Activity {
 	 * Check type of album
 	 */
 	private void setImageOwner(int state) {
-		if (state == Constants.sharedAlbum) {
-			keyOwner = Constants.keyReceiver;
+		if (state == Constants.SharedAlbum) {
+			keyOwner = Constants.KeyReceiver;
 		} else {
-			keyOwner = Constants.keyOwner;
+			keyOwner = Constants.KeyOwner;
 		}
 	}
 /*
@@ -70,7 +70,7 @@ public class FacebookGallery extends Activity {
 				dialog.setMessage("Loading album.......");
 				dialog.show();
 				App42ServiceApi.instance().loadMyAlbum(
-						UserContext.MyUserName, this, albumType);
+						UserContext.myUserName, this, albumType);
 			} catch (Exception e) {
 				dialog.dismiss();
 			}
@@ -122,10 +122,10 @@ public class FacebookGallery extends Activity {
 			try {
 				JSONObject jsonData = new JSONObject(albumJson.get(i)
 						.getJsonDoc());
-				imageUrlsArr.add(jsonData.getString(Constants.keyUrl));
+				imageUrlsArr.add(jsonData.getString(Constants.KeyUrl));
 				friendNamesArr.add(jsonData.getString(keyOwner));
-				commentsArr.add(jsonData.getString(Constants.keyComment));
-				photoIdsArr.add(jsonData.getString(Constants.keyPhotoId));
+				commentsArr.add(jsonData.getString(Constants.KeyComment));
+				photoIdsArr.add(jsonData.getString(Constants.KeyPhotoId));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -156,8 +156,8 @@ public class FacebookGallery extends Activity {
 		GridView grid = (GridView) findViewById(R.id.album_grid_view);
 		Display display = getWindowManager().getDefaultDisplay();
 		girdWidth = (display.getWidth() / 3);
-		if (girdWidth > Constants.maxGridWidth) {
-			girdWidth = Constants.maxGridWidth;
+		if (girdWidth > Constants.MaxGridWidth) {
+			girdWidth = Constants.MaxGridWidth;
 		}
 		grid.setColumnWidth(girdWidth);
 		grid.setOnItemClickListener(new OnItemClickListener() {

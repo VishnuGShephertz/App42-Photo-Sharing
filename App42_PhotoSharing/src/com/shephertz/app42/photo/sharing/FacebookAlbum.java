@@ -84,7 +84,7 @@ public class FacebookAlbum extends Activity {
 	public void sendMessage(View v) {
 		String comments = edComment.getText().toString();
 		if (comments.length() > 0) {
-			App42ServiceApi.instance().sendComments(UserContext.MyUserName,
+			App42ServiceApi.instance().sendComments(UserContext.myUserName,
 					photoId, comments);
 			String prevComments = txtComments.getText().toString();
 			txtComments.setText(prevComments + space + comments);
@@ -178,7 +178,7 @@ public class FacebookAlbum extends Activity {
 		slidingimage.startAnimation(rotateimage);
 		showLoading("Loading comments");
 		photoId = photoIdsArr.get(imageIndex);
-		if (albumState == Constants.sharedAlbum) {
+		if (albumState == Constants.SharedAlbum) {
 			txtComments.setText(space + commentsArr.get(imageIndex));
 		} else {
 			txtComments.setText("\n friend :" + commentsArr.get(imageIndex));
@@ -247,7 +247,7 @@ public class FacebookAlbum extends Activity {
 		String allComments = "";
 		for (int i = 0; i < arrAllComments.size(); i++) {
 			Review review = arrAllComments.get(i);
-			if (review.getUserId().equals(UserContext.MyUserName)) {
+			if (review.getUserId().equals(UserContext.myUserName)) {
 				allComments += space + review.getComment();
 			} else {
 				allComments += " \n friend :" + review.getComment();
